@@ -1,0 +1,6 @@
+<h1>My Angular 4</h1>
+<app-test *ngIf="showTest"></app-test>
+<app-test2></app-test2>
+<app-loading *ngIf='showLoading' (closeLoading)='closeLoading($event)'></app-loading>
+<button (click)='toggleTest()'>Toggle</button>
+<button (click)='toggleLoading()'>Toggle Loading</button>
