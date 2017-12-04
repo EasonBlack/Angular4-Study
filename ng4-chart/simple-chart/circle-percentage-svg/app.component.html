@@ -1,0 +1,20 @@
+<h1>My Angular 4</h1>
+<div class='svg-wrapper'>
+    <svg role="img" xmlns="http://www.w3.org/2000/svg">
+        <circle class="circle-background"
+            [ngStyle]="{
+                'r': radius
+            }"
+        />
+        <circle class="circle-foreground"
+           [ngStyle]="{
+               'stroke-dasharray': dasharray, 
+               'stroke-dashoffset': dashoffset,
+               'r': radius
+            }"
+       
+        />
+    </svg>
+</div>
+
+
