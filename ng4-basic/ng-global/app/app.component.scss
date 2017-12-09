@@ -1,0 +1,18 @@
+.model1 {
+    --bg-color: grey;
+    --color: black;
+}
+.model2 {
+    --bg-color: green;
+    --color: red;
+}
+
+.header__wrapper {
+    height:50px;
+    width: 100%;
+    background-color:  var(--bg-color, steelblue);
+    color: var(--color, white);
+    display: flex;
+    align-items: center;
+    margin-bottom:20px;
+}
