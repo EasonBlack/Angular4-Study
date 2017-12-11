@@ -1,0 +1,27 @@
+h1 {
+    color: steelblue;
+}
+
+.header__wrapper {
+    position:relative;
+    height:40px;
+    width:100vw;
+    display:flex;
+    align-items: center;
+    background-color: steelblue;
+}
+
+.menu__wrapper {
+    position:absolute;
+    top:40px;
+    left:0;
+    z-index:-1;
+}
+
+.box {
+    width:200px;
+    height:200px;
+    position:absolute;
+    top:100px;
+    left:calc(50% - 100px);
+}
