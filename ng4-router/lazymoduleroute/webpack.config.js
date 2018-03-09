@@ -16,6 +16,7 @@ module.exports = {
         loaders: [
           'awesome-typescript-loader',
           'angular-router-loader',
+          'angular2-template-loader'
         ]
       },
       {
