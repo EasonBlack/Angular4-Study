@@ -12,7 +12,7 @@ export const routes: Routes = [
 	},
 	{
 		path: 'home',
-		component: HomeComponent,
+		component: HomeComponent
 	},
 	{
 		path: 'about',
@@ -20,7 +20,7 @@ export const routes: Routes = [
 	},
 	{
 		path: 'article',
-		loadChildren: 'modules/article/article.module#ArticleModule'
+		loadChildren: './modules/article/article.module#ArticleModule'
 	},
 	{
 		path: '**',
