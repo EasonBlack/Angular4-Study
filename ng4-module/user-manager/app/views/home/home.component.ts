@@ -12,24 +12,38 @@ import { forkJoin } from "rxjs/observable/forkJoin";
 })
 export class HomeComponent implements OnInit {
     userCols = [
-        {id: "name", title:"Name"},
-        {id: "age", title:"Age"},
-        {id: "role", title: "Role"}
+        {type: "normal", id: "name", title:"Name"},
+        {type: "normal", id: "age", title:"Age"},
+        {type: "normal", id: "role", title: "Role"},
+        {type: "action", title: "Edit", Func: (o)=>{
+            this.editUserRole(o);
+        }}
     ]
     userRows = []
+    userSelect = ''
+    userRoleSelect = ''
+    userRoleDisplay = false
+
     roleCols = [
-        {id: "id", title: "ID"},
-        {id: "name", title: "Name"},
-        {id: "auth", title: "Auth"}
+        {type: "normal", id: "id", title: "ID"},
+        {type: "normal", id: "name", title: "Name"},
+        {type: "normal", id: "auth", title: "Auth"},
+        {type: "action", title: "Edit", Func: (o)=>{
+            this.editAuth(o);
+        }}
     ]
     roleRows = []
+    
 
+    authEdit = false
+    authEditId = null
     authCols = [
-        {id: "id", title: "ID"},
-        {id: "name", title: "Name"}
+        {type: "normal", id: "id", title: "ID"},
+        {type: "normal", id: "name", title: "Name"}
     ]
     authRows = []
     authNewDisplay = false
+    authSelected = []
 
     constructor(
         private userService: UserService, 
@@ -53,9 +67,35 @@ export class HomeComponent implements OnInit {
     showNewAuthModel() {
         this.authNewDisplay = true;
     }
-
+    closeUserRoleModal(bool) {
+        this.userRoleDisplay = bool;
+    }
     closeAuthModal(bool) {
-        console.log(123);
         this.authNewDisplay = bool;
+    }
+    saveAuth(auth) {
+        this.authService.addAuth(auth)
+    }
+
+    saveUserRole(role) {
+        
+        let _user = this.userRows.find(user=>user.id == this.userSelect);
+        console.log(_user, this.userSelect)
+        _user.role = role.id;
+    }
+    saveRoleAuth() {
+        let _auths = this.authRows.filter(row=>row.checked);
+        let _ids = _auths.map(au=>au.id);
+        this.roleService.addRoleAuth(this.authEditId, _ids);
+    }
+    editAuth(role) {
+        this.authEdit = !this.authEdit ;
+        this.authSelected = role.auth;
+        this.authEditId = role.id;
+    }
+    editUserRole(user) {
+        this.userSelect = user.id;
+        this.userRoleSelect = user.role;
+        this.userRoleDisplay = true;
     }
 }

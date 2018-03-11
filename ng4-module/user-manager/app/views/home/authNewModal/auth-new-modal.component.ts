@@ -9,11 +9,18 @@ import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 export class AuthNewModalComponent implements OnInit {
 
     @Output() closeModal = new EventEmitter()
+    @Output() saveAuth = new EventEmitter()
+    newAuth = ''
+    newId = ''
 
     constructor() { }
     ngOnInit() {}
 
     close() {
         this.closeModal.emit(false);
+    }
+
+    save() {
+        this.saveAuth.emit({id: this.newId, name: this.newAuth});
     }
 }

@@ -11,4 +11,5 @@ export class UserService {
   getUserData(): Observable<any> {
   	return this.http.get("app/data/user.json");
   }
+
 }

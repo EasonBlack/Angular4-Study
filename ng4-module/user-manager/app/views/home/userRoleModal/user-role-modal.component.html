@@ -9,13 +9,19 @@
         </div>
         <div class="modal-body">
             <div class='row'>
-                <div class='col-6'>Id</div>
-                <div class='col-6'><input  [(ngModel)]='newId'/></div>
+                <div class='col-6'>
+                    Role:
+                </div>
+                <div class='col-6'>
+                    <select #s (change)='selectRole(s.value)'>
+                        <option *ngFor='let role of roles' [value]='role.id' [selected]="role.id == roleSelect">
+                                {{role.name}}
+                        </option>
+                    </select>
+                </div>
+                
             </div>
-            <div class='row'>
-                <div class='col-6'>Name</div>
-                <div class='col-6'><input  [(ngModel)]='newAuth'/></div>
-            </div>
+            
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-primary" (click)='save()'>Save</button>

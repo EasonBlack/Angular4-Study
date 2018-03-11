@@ -17,4 +17,7 @@ export class AuthService {
     getAuthData(): Observable<any> {
         return Observable.of(this.auths);
     }
+    addAuth(auth) {
+      this.auths.push(auth)
+    }
 }

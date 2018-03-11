@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+        <th></th>
+        <th *ngFor = "let col of cols">{{col.title}}</th>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let row of rows">
+            <td>
+                <input type="checkbox"  [(ngModel)]="row.checked" *ngIf='isEdit'/>
+            </td>
+
+            <ng-container  *ngFor = "let col of cols">
+                <th *ngIf='col.type=="normal";  else action'>{{row[col.id]}}</th>
+                <ng-template #action>
+                    <th >
+                        <a class='btn btn-primary' (click)='col.Func(row)'>{{col.title}}</a>
+                    </th>
+                </ng-template>
+            
+            </ng-container>
+        </tr>
+    </tbody>
+</table>
