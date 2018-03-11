@@ -1,0 +1,33 @@
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+h1 {
+    color: steelblue;
+}
+
+ul {
+    list-style:none;
+}
+
+.header-container {
+    height:50px;
+    display:flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size:18px;
+}
+
+.main-container {
+    display:flex;
+    height: calc( 100vh - 50px);
+}
+
+.left-container {
+    width:300px;
+    height:100%;
+}
+
+.right-container {
+    flex: 1;
+    height:100%;
+}
+

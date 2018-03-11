@@ -1,0 +1,25 @@
+
+<div class='content-container'>
+    <div class='table-wrapper'>
+        <h1>User List</h1>
+        <my-table  [cols]="userCols" [rows]="userRows"></my-table>
+    </div>
+    <div class='row'>
+        <div class='col-6'>
+            <div class='table-wrapper'>
+                <h1>Role List</h1>
+                <my-table  [cols]="roleCols" [rows]="roleRows"></my-table>
+            </div>
+        </div>
+        <div class='col-6'>
+            <div class='table-wrapper'>
+                <div class='d-flex align-items-center'>
+                    <span class='ft-18 text-primary'>Auth List</span>
+                    <a class='btn btn-primary' (click)="showNewAuthModel()">New</a>
+                </div>
+                <my-table  [cols]="authCols" [rows]="authRows"></my-table>
+            </div>
+        </div>
+    </div>
+    <auth-new-modal  *ngIf='authNewDisplay'  (closeModal)="closeAuthModal($event)"></auth-new-modal>
+</div>
