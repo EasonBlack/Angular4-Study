@@ -1,0 +1,37 @@
+<div class='container'>
+    <form #myForm="ngForm" (ngSubmit)="actionOnSubmit(myForm)"  >
+        <div class='row'>
+            <div class='col-6'>Name:</div>
+            <div class='col-6'>
+                <input class='form-control' required  name='newname' [(ngModel)]='newname' #newName="ngModel" />
+                <div  *ngIf="newName.errors?.required && isSubmit">
+                    This is required
+                </div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-6'>Mobile:</div>
+            <div class='col-6'>
+                <input class='form-control' required name='newmobile'  [(ngModel)]='newmobile' #newMobile="ngModel"   pattern="\d{11}"/>
+                <div  *ngIf="newMobile.errors?.required && isSubmit">
+                    This is required
+                </div>
+                <div  *ngIf="newMobile.errors?.pattern && isSubmit">
+                        Format error
+                </div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-6'>Email:</div>
+            <div class='col-6'>
+                <input class='form-control' name='newemail' [(ngModel)]='newemail' #newEmail="ngModel" email/>
+                <div  *ngIf="newEmail.errors?.email && isSubmit">
+                    Email format error
+                </div>
+            </div>
+        </div>
+        <button class='btn btn-primary' type="submit" >Submit</button>
+    </form>
+    
+   
+</div>
