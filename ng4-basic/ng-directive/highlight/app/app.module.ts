@@ -6,6 +6,8 @@ import {FormsModule} from '@angular/forms'
 import {AppComponent}   from './app.component';
 
 import {HighlightDirective} from './directive/highlight.directive';
+import {HighlightServiceDirective} from './directive/highlight-service.directive';
+import {AccountService} from './services/account.service';
 
 @NgModule({
     imports: [
@@ -14,8 +16,10 @@ import {HighlightDirective} from './directive/highlight.directive';
     ],
     declarations: [
         AppComponent,
-        HighlightDirective
+        HighlightDirective,
+        HighlightServiceDirective
     ],
+    providers: [AccountService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
