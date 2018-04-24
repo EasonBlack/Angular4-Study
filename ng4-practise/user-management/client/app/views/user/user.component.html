@@ -1,0 +1,11 @@
+<div>This is User</div>
+<ul>
+  <li *ngFor='let row of userRows' (click)='selectUser(row)'>
+    {{row.name}}
+  </li>
+</ul>
+<div>
+  <input [(ngModel)]='userId' />
+  <input [(ngModel)]='userName'/>
+  <button  (click)='saveUser()'>Add</button>
+</div>
