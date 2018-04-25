@@ -7,9 +7,11 @@ import { HttpModule } from '@angular/http';
 import {AppComponent}   from './app.component';
 import {UserComponent}   from './views/user/user.component';
 import {RoleComponent}   from './views/role/role.component';
+import {AuthorityComponent}   from './views/authority/authority.component';
 import { AppRoutingModule } from './app.routing';
 
 import {UserService} from './services/user.service';
+import {RoleService} from './services/role.service';
 
 @NgModule({
     imports: [
@@ -21,10 +23,12 @@ import {UserService} from './services/user.service';
     declarations: [
         AppComponent,
         UserComponent,
-        RoleComponent
+        RoleComponent,
+        AuthorityComponent
     ],
     providers: [
-        UserService
+        UserService,
+        RoleService
     ],
     bootstrap: [AppComponent]
 })

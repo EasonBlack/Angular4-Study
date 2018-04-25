@@ -1,0 +1,26 @@
+
+.user-list {
+  height:40%;
+  overflow-y:auto;
+}
+
+.role-list {
+ 
+  li {
+    margin-bottom:10px;
+    &.selected {
+      background-color: steelblue;
+      color: white;
+    }
+  }
+}
+
+.role-current {
+  li {
+    margin-bottom:10px;
+    &.selected {
+      background-color: steelblue;
+      color: white;
+    }
+  }
+}

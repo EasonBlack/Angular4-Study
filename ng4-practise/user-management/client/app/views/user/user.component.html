@@ -1,11 +1,41 @@
-<div>This is User</div>
-<ul>
-  <li *ngFor='let row of userRows' (click)='selectUser(row)'>
-    {{row.name}}
-  </li>
-</ul>
-<div>
-  <input [(ngModel)]='userId' />
-  <input [(ngModel)]='userName'/>
-  <button  (click)='saveUser()'>Add</button>
+<div class='user-info container-fluid'>
+  <div class='row'>
+    <div class='col-6 user-list'>
+      <ul>
+        <li *ngFor='let row of userRows' (click)='selectUser(row)'>
+          {{row.name}}
+        </li>
+      </ul>
+    </div>
+    <div class='col-6'>
+    
+      <input class='form-control' [(ngModel)]='userId' />
+      <input class='form-control' [(ngModel)]='userName'/>
+      <button class='btn btn-primary' (click)='saveUser()'>Add</button>
+    </div>
+  </div>
+
 </div>
+<div class='user-role d-flex'>
+  <div class='role-current col-5'>
+    <ul>
+      <li *ngFor='let row of userRole' [class.selected]="row.selected"  (click)='toggleSelectRole(row)'>
+          {{row?.name}}
+      </li>
+    </ul>
+    <button class='btn btn-primary' (click)='saveRole()'>Save</button>
+  </div>
+  <div class='col-2'>
+    <button (click)='removeRole()'>-></button>
+    <button (click)='addRole()'><-</button>
+  </div>
+  <div class='role-list col-5'>
+    <ul>
+      <li *ngFor='let row of roleRows' class='d-flex' [class.selected]="row.selected" (click)='toggleSelectRole(row)'>
+        <div> {{row.name}}</div>
+        <div> {{row.description}}</div>
+      </li>
+    </ul>
+  </div>
+</div>
+

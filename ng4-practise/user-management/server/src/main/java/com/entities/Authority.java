@@ -8,20 +8,20 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "role")
-public class Role {
+@Table(name = "authority")
+public class Authority {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
-	private String name;
-	private String description;
-	private String authority;
+	private Long id;
+  private String name;
+  private String parentId;
+  private String description;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -31,22 +31,21 @@ public class Role {
 
 	public void setName(String name) {
 		this.name = name;
-  }
-  
-  public String getDescription() {
+	}
+
+	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public String getAuthority() {
-		return authority;
+	public String getParentId() {
+		return parentId;
 	}
 
-	public void setAuthority(String authority) {
-		this.authority = authority;
+	public void setParentId(String parentId) {
+		this.parentId = parentId;
 	}
 
 

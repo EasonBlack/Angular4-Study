@@ -15,62 +15,52 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.entities.User;
+
 import com.entities.Role;
 import com.dao.RoleRepository;
-import com.dao.UserRepository;
+
 
 @CrossOrigin(maxAge = 3600)
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/roles")
+public class RoleController {
 
   @Autowired
   private RoleRepository roleRepository;
-  @Autowired
-  private UserRepository userRepository;
 
 
   @RequestMapping(method = RequestMethod.GET)
-  public @ResponseBody Iterable<User> getAllUsers() {
-    return userRepository.findAll();
+  public @ResponseBody Iterable<Role> getAllRoles() {
+    return roleRepository.findAll();
   }
+
 
   @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
   @ResponseBody
-  public String saveUser(@RequestBody User user) {
-    userRepository.save(user);
+  public String saveRole(@RequestBody Role role) {
+    roleRepository.save(role);
     return "success";
   }
 
   @RequestMapping(method = RequestMethod.PUT, consumes = "application/json")
   @ResponseBody
-  public String updateUser(@RequestBody User user) {
-    userRepository.save(user);
+  public String updateRole(@RequestBody Role role) {
+    roleRepository.save(role);
     return "success";
   }
 
-  @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+  @RequestMapping(value = "/{id}/authority", method = RequestMethod.GET)
   @ResponseBody
-  public String deleteUser(@PathVariable Long id) {
-    userRepository.delete(id);
+  public String getRoleAuthority(@PathVariable Long id) {
+    return roleRepository.findRoleAuthorityById(id);
+  }
+
+  @RequestMapping(value = "/{id}/authority", method = RequestMethod.PUT)
+  @ResponseBody
+  public String updateRoleAuthority(@PathVariable Long id, @RequestPart("authority") String authority) {
+    System.out.println(id + "   " + authority);
+    roleRepository.updateRoleAuthority(id, authority);
     return "success";
   }
-
-  @RequestMapping(value = "/{id}/roles", method = RequestMethod.GET)
-  @ResponseBody
-  public String getUserRole(@PathVariable Long id) {
-    return userRepository.findUserRoleById(id);
-  }
-
-  @RequestMapping(value = "/{id}/roles", method = RequestMethod.PUT)
-  @ResponseBody
-  public String updateUserRole(@PathVariable Long id, @RequestPart("role") String role) {
-    System.out.println(id + "   " + role);
-    userRepository.updateUserRole(id, role);
-    return "success";
-  }
-
-  
 
 }

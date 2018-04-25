@@ -14,6 +14,7 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String name;
+	private String role;
 
 	public Long getId() {
 		return id;
@@ -29,6 +30,14 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 
