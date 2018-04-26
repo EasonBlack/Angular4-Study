@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { AuthorityService } from '../../services/authority.service';
+import { RoleService } from '../../services/role.service';
 
 
 @Component({
@@ -7,7 +9,22 @@ import {Component} from '@angular/core';
     styleUrls: ['./role.component.scss']
     
 })
-export class RoleComponent {
-   
+export class RoleComponent implements OnInit {
+    authorityRows = [];
+    authorityTree = [];
+
+    constructor(
+        private authorityService: AuthorityService,
+        private roleService: RoleService,
+    ) {
+    }
+
+    ngOnInit() {
+        this.authorityService.getAuthorityList()
+        .subscribe(result=>{
+            this.authorityRows = result.json();
+            this.authorityTree = this.authorityService.makeAuthorityTree(null, this.authorityRows);   
+        })
+    }
 }
 

@@ -1,1 +1,11 @@
-<div>This is Role</div>
+<div>
+  <ul>
+    <li *ngFor='let row of authorityRows' >
+        {{row.name}}
+    </li>
+  </ul>
+  <div  *ngFor='let tree of authorityTree' >
+    <authority-item [item]='tree'></authority-item>
+  </div>
+  
+</div>

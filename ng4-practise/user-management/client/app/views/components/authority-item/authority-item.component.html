@@ -1,0 +1,6 @@
+<div class='item-parent'>
+  {{item.name}}
+</div>
+<div *ngFor='let item of item.children' class='item-children' >
+  <authority-item  [item]='item'></authority-item>
+</div>
