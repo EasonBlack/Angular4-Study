@@ -5,7 +5,7 @@
     </li>
   </ul>
   <div  *ngFor='let tree of authorityTree' >
-    <authority-item [item]='tree'></authority-item>
+    <authority-item [item]='tree' (selectItem)='selectItemHandle($event)'></authority-item>
   </div>
   
 </div>

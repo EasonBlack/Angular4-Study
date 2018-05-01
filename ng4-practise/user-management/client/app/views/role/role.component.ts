@@ -26,5 +26,11 @@ export class RoleComponent implements OnInit {
             this.authorityTree = this.authorityService.makeAuthorityTree(null, this.authorityRows);   
         })
     }
+
+    selectItemHandle(item) {
+        console.log(item);
+        alert(item.id);
+    }
+
 }
 

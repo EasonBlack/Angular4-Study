@@ -1,6 +1,6 @@
-<div class='item-parent'>
+<div class='item-parent' (click)='clickHandle(item)'>
   {{item.name}}
 </div>
 <div *ngFor='let item of item.children' class='item-children' >
-  <authority-item  [item]='item'></authority-item>
+  <authority-item  [item]='item' (selectItem)='selectItemHandle($event)'></authority-item>
 </div>
