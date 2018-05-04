@@ -1,0 +1,10 @@
+
+<tree [tree]="tree" 
+
+[settings]="settings"
+(nodeSelected)="logEvent($event)"
+#treeComponent
+></tree>
+<button (click)='confirm()'>Confirm</button>
+
+
