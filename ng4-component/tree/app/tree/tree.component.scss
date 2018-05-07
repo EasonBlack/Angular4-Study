@@ -1,0 +1,32 @@
+
+
+
+
+
+
+.item-parent {
+  display:flex;
+  align-items: center;
+  position:relative;
+}
+
+.fa {
+  width: 20px;
+  font-size: 1.3em;
+  margin-top: 3px;
+}
+
+.fa ~ label {
+  display: block;
+  margin-bottom:0;
+  &:hover {
+    border-bottom: 2px solid black;
+  }
+  &.selected {
+    border-bottom: 2px solid black;
+  }
+}
+
+.item-children {
+  padding-left:30px;
+}

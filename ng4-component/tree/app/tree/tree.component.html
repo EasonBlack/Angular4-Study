@@ -1,0 +1,19 @@
+<div class='item-parent' >
+  <i class='fa fa-caret-right' 
+    [class.fa-caret-right]='item.children && !item.expand'
+    [class.fa-caret-down]=' item.children && item.expand'
+    (click)='toggleExpend(item)'
+  >
+  </i>
+  <label 
+    (click)='clickHandle(item)'
+    [class.selected]='item.selected'
+  >
+    {{item.name}}
+  </label>
+</div>
+<ng-container *ngIf='item.expand'>
+  <div *ngFor='let item of item.children' class='item-children' >
+    <tree  [item]='item' (selectItem)='selectItemHandle($event)'></tree>
+  </div>
+</ng-container>

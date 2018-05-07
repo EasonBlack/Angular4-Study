@@ -26,31 +26,33 @@ export class AppComponent {
             {
                 id: 2,
                 value: 'Object-oriented programming',
-    
+                desc: "aaaaaa",
                 children: [
                     {
                         id: 3,
                         value: 'Java',
-            
+                        desc: "jjjj",
                     },
                     {
                         id: 4,
                         value: 'C++',
-            
+                        desc: "ddddd",
                     },
                     {
                         id: 5,
                         value: 'C#',
+                        desc: "ccccc",
                     }
                 ]
             },
             {
                 id: 6,
                 value: 'Prototype-based programming',
+                desc: "123123123",
                 children: [
-                    { id: 7, value: 'JavaScript' }, 
-                    { id: 8, value: 'CoffeeScript' }, 
-                    { id: 9, value: 'Lua' }]
+                    { id: 7, value: 'JavaScript' ,desc: "123123", }, 
+                    { id: 8, value: 'CoffeeScript', desc: "dfdfdfd", }, 
+                    { id: 9, value: 'Lua', desc: "bbbbbb", }]
             }
         ]
     };
