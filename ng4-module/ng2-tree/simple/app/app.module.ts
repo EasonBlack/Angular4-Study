@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
+import { AppTreeComponent } from './tree/tree.component';
+
 import { TreeModule } from 'ng2-tree';
 
 
@@ -14,7 +16,8 @@ import { TreeModule } from 'ng2-tree';
         TreeModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        AppTreeComponent
     ],
     bootstrap: [AppComponent]
 })

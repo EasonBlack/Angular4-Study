@@ -17,6 +17,11 @@ export class AppComponent {
     tree: TreeModel = {
         id: 1,
         value: 'Programming languages by programming paradigm',
+        settings: {
+            cssClasses: {
+              leaf: 'fa'
+            }
+        },
         children: [
             {
                 id: 2,
@@ -50,22 +55,8 @@ export class AppComponent {
         ]
     };
 
-    settings: Ng2TreeSettings = {
-        rootIsVisible: false,
-        showCheckboxes: true
-    };
+   
 
-    public logEvent(e: NodeEvent): void {
-        let node= this.treeComponent.getControllerByNodeId(e.node.id);
-        node.select();
-        console.log(e);
-    }
-
-    confirm() {
-        let node= this.treeComponent.getControllerByNodeId(1);
-        let a = node.toTreeModel();
-        console.log(a);
-        console.log(this.tree);
-    }
+   
 }
 
