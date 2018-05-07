@@ -42,7 +42,6 @@ export class AppTreeComponent {
         console.log(_tree);
         let result= []
         result = this.getAllCheckedNode(_tree.children);
-       
         console.log(result);
     }
 
