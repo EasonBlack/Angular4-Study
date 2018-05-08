@@ -1,7 +1,17 @@
 
-<div *ngFor='let item of tree' class='pl-3'>
-  <tree [item]='item'></tree>
+<div *ngFor='let item of tree' class='pl-3 mb-5'>
+  <tree [item]='item' 
+  [itemSelected] = 'itemSelected'
+  (selectItem)='selectItemHandle($event)'></tree>
 </div>
+<span></span>
+<div *ngFor='let item of tree' class='pl-3'>
+  <tree [item]='item' 
+  [itemSelected] = 'itemSelected'
+  [settings]='settings'
+  (selectItem)='selectItemHandle($event)'></tree>
+</div>
+<button (click)='cofirm()'>Confirm</button>
 
 
 

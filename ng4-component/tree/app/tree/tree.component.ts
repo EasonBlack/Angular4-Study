@@ -8,14 +8,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TreeComponent {
   @Input() item: any = {};
-
+  @Input() itemSelected: any = {};
+  @Input() settings: any = {};
+  @Output() selectItem = new EventEmitter();
 
   clickHandle(item) {
-    item.selected = true;
+    this.selectItem.emit(item)
   }
 
   selectItemHandle(item) {
-    item.selected = true;
+    this.selectItem.emit(item)
   }
 
   toggleExpend(item) {

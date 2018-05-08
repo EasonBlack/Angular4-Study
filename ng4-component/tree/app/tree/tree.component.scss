@@ -19,11 +19,22 @@
 .fa ~ label {
   display: block;
   margin-bottom:0;
-  &:hover {
-    border-bottom: 2px solid black;
+  position:relative;
+  &:after {
+    width:100%;
+    display:none;
+    content: '';
+    height:2px;
+    position:absolute;
+    bottom:0px;
+    left: 0;
+    background-color:black;
   }
-  &.selected {
-    border-bottom: 2px solid black;
+  &:hover:after {
+    display:block;
+  }
+  &.selected:after {
+    display:block;
   }
 }
 
