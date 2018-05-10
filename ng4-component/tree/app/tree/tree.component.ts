@@ -11,6 +11,7 @@ export class TreeComponent {
   @Input() itemSelected: any = {};
   @Input() settings: any = {};
   @Output() selectItem = new EventEmitter();
+  @Output() childCheckChange = new EventEmitter();
 
   clickHandle(item) {
     this.selectItem.emit(item)
@@ -22,6 +23,35 @@ export class TreeComponent {
 
   toggleExpend(item) {
     item.expand = !item.expand;
+  }
+
+  checkedChange(item) {
+    //check children
+    if(item.children && item.children.length) {
+      item.children.forEach(c=>{
+        c.checked = item.checked;
+        this.checkedChange(c);
+      })
+    }
+
+    //check parent 
+    this.childCheckChange.emit(item);
+
+  }
+
+  childCheckChangeHandle(child) {
+
+    if(child.checked) {
+      this.item.checked = true;
+    } else {
+      let _item = this.item.children.find(c=>c.checked)
+      if(!_item) {
+        this.item.checked = false;
+      }
+    }
+
+    this.childCheckChange.emit(this.item);
+
   }
   
 }

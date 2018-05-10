@@ -15,7 +15,18 @@ export class AppComponent {
             id: 1, name: 'aaaa', children: [
                 { id: 2, name: 'bbb' },
                 { id: 3, name: 'ccc' },
-                { id: 4, name: 'dddd' },
+                { id: 4, name: 'dddd', children: [
+                    {id: 12, name: 'dfdfd'},
+                    {id: 13, name: 'bbbas'},
+                    {id: 14, name: 'dfdfd'}
+                ]},
+            ],
+        },
+        {
+            id: 2, name: 'BBBBB', children: [
+                { id: 22, name: 'b1' },
+                { id: 23, name: 'b2' },
+                { id: 24, name: 'b3' },
             ]
         }
     ]

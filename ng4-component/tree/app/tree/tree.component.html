@@ -1,23 +1,28 @@
-<div class='item-parent' >
-  <i class='fa fa-caret-right' 
-    [class.fa-caret-right]='item.children && !item.expand'
-    [class.fa-caret-down]=' item.children && item.expand'
-    (click)='toggleExpend(item)'
-  >
-  </i>
-  <input type='checkbox' class='mr-1' *ngIf='settings.hasCheckbox'  [(ngModel)]='item.checked'>
-  <label 
-    (click)='clickHandle(item)'
-    [class.selected]='item.id == itemSelected.id'
-  >
-    {{item.name}}
-  </label>
-</div>
-<ng-container *ngIf='item.expand'>
-  <div *ngFor='let item of item.children' class='item-children' >
-    <tree  [item]='item' 
-    [itemSelected]='itemSelected'
+<ng-container *ngIf='item?.length > 0; then arrayTree else jsonTree'></ng-container>
+
+<ng-template #arrayTree>
+  <div *ngFor='let child of item' class='pl-3'>
+    <tree [item]='child' 
+    [itemSelected] = 'itemSelected'
     [settings]='settings'
-    (selectItem)='selectItemHandle($event)'></tree>
+    (selectItem)='selectItemHandle($event)'
+    ></tree>
   </div>
-</ng-container>
+</ng-template>
+
+<ng-template #jsonTree>
+  <div class='item-parent'>
+    <i class='fa fa-caret-right' [class.fa-caret-right]='item.children && !item.expand' [class.fa-caret-down]=' item.children && item.expand'
+      (click)='toggleExpend(item)'>
+    </i>
+    <input type='checkbox' class='mr-1' *ngIf='settings.hasCheckbox' (change)="checkedChange(item)" [(ngModel)]='item.checked'>
+    <label (click)='clickHandle(item)' [class.selected]='item.id == itemSelected.id'>
+      {{item.name}}
+    </label>
+  </div>
+  <ng-container *ngIf='item.expand'>
+    <div *ngFor='let item of item.children' class='item-children'>
+      <tree [item]='item' [itemSelected]='itemSelected' [settings]='settings' (selectItem)='selectItemHandle($event)' (childCheckChange)='childCheckChangeHandle(item)'></tree>
+    </div>
+  </ng-container>
+</ng-template>
