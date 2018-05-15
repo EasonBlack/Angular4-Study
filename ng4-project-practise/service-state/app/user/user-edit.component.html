@@ -1,0 +1,7 @@
+<div class='mb-5'>
+  <label>ID: </label>
+  <input class='form-control' [(ngModel)]='userId' [disabled]="!userService.createEnable"  />
+  <label>Name: </label>
+  <input class='form-control' [(ngModel)]='userName'[disabled]="!userService.createEnable" />
+</div>
+<button class='btn btn-primary' (click)='saveUser()'>Save</button>
