@@ -1,0 +1,11 @@
+<h1>Angular 4</h1>
+ <smooth-dnd-container (drop)="onDrop($event)">            
+        <smooth-dnd-draggable *ngFor="let item of items">
+            <div class="draggable-item">
+                {{item.data}}
+            </div>
+        </smooth-dnd-draggable>
+    </smooth-dnd-container>
+
+
+
