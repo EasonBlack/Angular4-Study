@@ -1,0 +1,15 @@
+<button (click)='confirm()'>Confirm</button>
+<gridster [options]="options">
+  <gridster-item [item]="item" *ngFor="let item of dashboard">
+    <ng-container  [ngSwitch]="item.component" >
+        <hello-world1 *ngSwitchCase="'hello-world1'"></hello-world1>
+        <hello-world2 *ngSwitchCase="'hello-world2'"></hello-world2>
+        <hello-world3 *ngSwitchCase="'hello-world3'"></hello-world3>
+        <hello-world4 *ngSwitchCase="'hello-world4'"></hello-world4>
+
+    </ng-container>
+   
+ </gridster-item>
+</gridster>
+
+
