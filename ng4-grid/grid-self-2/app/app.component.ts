@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
                 return t.name != item.name &&
                 (
                     (currentStartX <= targetStartX && targetStartX <= currentEndX ) ||
-                    (currentStartX <= targetEndX && targetEndX <= currentEndX )
+                    (currentStartX <= targetEndX && targetEndX <= currentEndX ) 
                 ) && 
                 (
                     (currentStartY <= targetStartY && targetStartY <= currentEndY) ||
