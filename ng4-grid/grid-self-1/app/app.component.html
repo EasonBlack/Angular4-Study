@@ -1,0 +1,24 @@
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-3'>
+            <ul>
+                <li *ngFor='let item of items'>
+                    <label>{{item.name}} </label>
+                    <div>
+                        <button (click)='up(item)'>UP</button>
+                        <button (click)='down(item)'>DOWN</button>
+                        <button (click)='left(item)'>LEFT</button>
+                        <button (click)='right(item)'>RIGHT</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class='col-9 content-wrapper'>
+            <div class='box-wrapper' *ngFor='let item of items' [ngStyle]="item.style">
+                <div class='box'>
+                    {{item.name}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

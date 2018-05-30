@@ -20,10 +20,13 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.options = {
+            gridType:'fixed',
             itemChangeCallback: AppComponent.itemChange,
             itemResizeCallback: AppComponent.itemResize,
-            maxCols: 10,
+            maxCols: 4,
             maxRows: 10,
+            fixedColWidth: 250,
+            fixedRowHeight:250,
             draggable: {enabled: true}
         };
 
