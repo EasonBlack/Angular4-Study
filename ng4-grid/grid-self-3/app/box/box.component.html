@@ -1,0 +1,7 @@
+<div class='box-wrapper' [ngStyle]="item.style"
+(mousedown)='mousedown($event)' 
+(mousemove)='mousemove($event)'>
+    <div class='box'>
+        {{item.name}}
+    </div>
+</div>

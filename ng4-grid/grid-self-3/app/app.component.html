@@ -1,0 +1,13 @@
+<div class='container-fluid' (mouseup)='mouseup($event)'>
+    <div class='row'>
+        <div class='col-3'>
+          
+        </div>
+        <div class='col-9 content-wrapper'>
+            <ng-container *ngFor='let item of boxesService.items'>
+                <box [item]='item'></box>
+            </ng-container>
+           
+        </div>
+    </div>
+</div>
