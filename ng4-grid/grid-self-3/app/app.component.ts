@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { BoxesService } from './boxes.service';
 
 @Component({
@@ -21,10 +21,15 @@ export class AppComponent implements OnInit {
       
     }
 
-    mouseup(e) {
-        console.log(e);
-        this.boxesService.dragStop(e);
+    @HostListener('document:mouseup', ['$event'])
+    onMouseUp(ev:MouseEvent) {
+       this.boxesService.dragStop(ev);
     }
+
+    // mouseup(e) {
+    //     console.log(e);
+    //     this.boxesService.dragStop(e);
+    // }
 
    
 }
